@@ -1,0 +1,6 @@
+[World]
+TimeOfDay=Morning
+WorldTurn=1
+Day=1
+MoonPhase=NewMoon
+Weather=Clear

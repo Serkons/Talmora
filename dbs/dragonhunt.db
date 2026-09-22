@@ -1,0 +1,34 @@
+[Tessith_Bloodfang]
+Name=Tessith Bloodfang
+Created=1648267443
+Age=143
+BattleLevel=140
+Element=ice
+
+[Zedrith_Riptide]
+Name=Zedrith Riptide
+Created=1648267443
+Age=127
+BattleLevel=114
+Element=lightning
+
+[Naysath_Darkhorn]
+Name=Naysath Darkhorn
+Created=1648267443
+Age=142
+BattleLevel=142
+Element=water
+
+[Verdranth_Nocturne]
+Name=Verdranth Nocturne
+Created=1648267443
+Age=128
+BattleLevel=117
+Element=fire
+
+[Lyrroth_Voiceless]
+Name=Lyrroth Voiceless
+Created=1720247096
+Age=121
+BattleLevel=121
+Element=lightning

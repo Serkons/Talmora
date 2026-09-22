@@ -1,0 +1,863 @@
+; =============================================================
+; skills_minecraft_candidate.db
+; First Minecraft-RPG adaptation of the original skills.db
+; English section/key names are intentionally retained where possible,
+; because the existing mIRC source code refers to them.
+;
+; IMPORTANT:
+; - This is a compatibility-minded candidate, not a blind rewrite.
+; - Cost/CoinCost/ActionPoints/Style fields are retained until their
+;   exact old core-code meaning and dependencies are reviewed.
+; - PARKED skills are documented in skills_review.md and are not active here.
+; - New Minecraft KillerTraits should only be added after MonsterType/core
+;   checks are defined, so no unsupported new keys are invented here.
+; =============================================================
+
+
+; =============================================================
+; PASSIVE SKILLS - KEPT / ADAPTED
+; =============================================================
+
+[Swordmaster]
+Cost=150
+CoinCost=500
+Max=$iif($readini($char($1), stuff, NumberOfResets) >= 1, 150, 100)
+Type=Passive
+Info=This skill increases damage done with sword and katana weapons.  Increased levels increases the damage.
+
+[Polemaster]
+Cost=150
+CoinCost=5
+Max=$iif($readini($char($1), stuff, NumberOfResets) >= 1, 150, 100)
+Type=Passive
+Info=This skill increases damage done with spear weapons.  Increased levels increases the damage.
+
+[Wizardry]
+Cost=150
+CoinCost=5
+Max=$iif($readini($char($1), stuff, NumberOfResets) >= 1, 150, 100)
+Type=Passive
+Info=This skill increases damage done with stave and wand weapons.  Increased levels increases the damage.
+
+[MartialArts]
+Cost=150
+CoinCost=5
+Max=$iif($readini($char($1), stuff, NumberOfResets) >= 1, 150, 100)
+Type=Passive
+Info=This skill increases damage done with your hand to hand weapons.  Increased levels increases the damage.
+
+[Archery]
+Cost=150
+CoinCost=5
+Max=$iif($readini($char($1), stuff, NumberOfResets) >= 1, 150, 100)
+Type=Passive
+Info=This skill increases damage done with a bow.  Increased levels increases the damage.
+
+[Hatchetman]
+Cost=150
+CoinCost=5
+Max=$iif($readini($char($1), stuff, NumberOfResets) >= 1, 150, 100)
+Type=Passive
+Info=This skill increases damage done with an axe.  Increased levels increases the damage.
+
+[Harvester]
+Cost=150
+CoinCost=5
+Max=$iif($readini($char($1), stuff, NumberOfResets) >= 1, 150, 100)
+Type=Passive
+Info=This skill increases damage done with a scythe.  Increased levels increases the damage.
+
+[SleightOfHand]
+Cost=150
+CoinCost=5
+Max=$iif($readini($char($1), stuff, NumberOfResets) >= 1, 150, 100)
+Type=Passive
+Info=This skill increases damage done with a dagger.  Increased levels increases the damage.
+
+[Hammermaster]
+Cost=150
+CoinCost=5
+Max=$iif($readini($char($1), stuff, NumberOfResets) >= 1, 150, 100)
+Type=Passive
+Info=This skill increases damage done with hammer weapons.  Increased levels increases the damage.
+
+[ClearMind]
+Cost=450
+CoinCost=15
+Type=Passive
+Info=This skill will increase magical damage.  Increased levels of this skill will increase the damage.
+Max=3
+
+[DesperateBlows]
+Cost=1000
+CoinCost=50
+Type=Passive
+Info=This skill will enhance melee damage based on how much health you have left. At 10-25% health your attack will be 1.5x stronger, at 2-10% your attack will be 2x and at 2% or less health your attack will be 2.5x.
+Max=1
+
+[FieldMedic]
+Cost=300
+CoinCost=10
+Type=Passive
+Info=This skill will increase the amount of health items will heal by 5*skill level.
+Max=30
+
+[Connoisseur]
+Cost=1000
+CoinCost=50
+Type=passive
+Info=You can understand the finer art of food.  As such you will gain a +5 bonus to any food that gives a bonus to core stats (str, def, int or spd).
+Max=1
+
+[Impetus]
+Cost=150
+CoinCost=6
+Type=Passive
+Info=This skill will increase your chances of performing a critical hit by 1% each level in this skill.
+Max=20
+
+[Zen]
+Cost=500
+CoinCost=20
+Type=Passive
+Info=This skill will increase the amount of TP you get back each turn by 5*skill level.
+Max=5
+
+[Haggling]
+Cost=250
+CoinCost=15
+Type=passive
+Info=This skill improves the value received when selling items through the trading system. Exact Emerald scaling will be defined with the trading system.
+Max=50
+
+[CriticalCut]
+Cost=1500
+CoinCost=60
+Type=passive
+Info=This skill will add a chance of inflicting the bleed status after each melee hit. The Chance ance is (skill level * 20)%.
+Max=1
+
+[WeaponBash]
+Cost=1500
+CoinCost=60
+Type=passive
+Info=This skill will add a chance of inflicting the stun status after each melee hit. Note, if the target is immune to stun it will never take effect.  The chance is (skill level * 10)%.
+Max=1
+; For this skill, the max=# is (# * 10)%.  So if you set it to 10, then it's 100% active if someone gets it to level 10.
+
+[Alchemy]
+Cost=400
+CoinCost=15
+Type=passive
+Info=This skill improves advanced crafting and alchemy using Minecraft/RPG materials. Each level raises the success rate of applicable recipes by 1%.
+Max=20
+
+[Desynth]
+Cost=$iif($readini($char($1), Skills, Alchemy) >= 1, 2000, 0)
+CoinCost=$iif($readini($char($1), Skills, Alchemy) >= 1, 80, 0)
+Type=passive
+Info=This skill allows crafted items to be dismantled into part of their base materials. Requires Alchemy.
+Max=1
+
+[TreasureHunter]
+Cost=1000
+CoinCost=30
+Type=passive
+Info=This skill improves bonus loot and treasure results. It can interact with battle rewards and the Spoils system where supported by the core code.
+Max=5
+
+[BackGuard]
+Cost=1000
+CoinCost=50
+Type=passive
+Info=This skill will decrease the odds of a surprise attack against the players. This skill is cumulative with everyone who has it at the beginning of battle.
+Max=5
+
+[DualWield]
+Cost=85000
+CoinCost=2500
+Type=passive
+Info=This skill will allow the user to hold two one-handed weapons and use techniques from both without having to switch weapons. For melee attacks, the # of hits for the attack will be both weapon's # of hits combined. Use !equip left or !equip right to equip to the specified hand. Note, a weapon must be in the right hand before you can equip the left hand.
+Max=1
+
+[SwiftCast]
+Cost=0
+Type=passive
+Info=You have become faster at casting spells and as such you are able to deal more damage with spells. Your spell damage will increase by 10%.
+Max=1
+
+[Tensai]
+Cost=0
+Type=passive
+Info=You learn how to improve your techniques faster than most people.  With this skill you will gain +5 technique xp per technique use instead of the usual +1.
+Max=1
+
+
+
+=============================================
+ACTIVE SKILLS
+=============================================
+
+
+; =============================================================
+; ACTIVE SKILLS - KEPT / ADAPTED
+; =============================================================
+
+[ElementalSeal]
+Cost=425
+CoinCost=20
+Type=Active
+Max=5
+Info=This skill enhances your next magical spell. Increased levels decreases the amount of time between uses.
+Cooldown=11
+LevelAdjustsCooldown=true
+ActionPoints=3
+NeedToEquip=true
+Style=Spellmaster
+Instant=false
+
+[DeathStrike]
+Cost=900
+CoinCost=50
+Type=Active
+Max=5
+Info=This Skill enhances your next attack done with a weapon do quadro damage. Increase Levels decrease the amount of time between uses.
+Cooldown=11
+ActionPoints=3
+NeedToEquip=true
+Style=WeaponMaster
+Instant=false
+
+[MightyStrike]
+Cost=450
+CoinCost=25
+Type=Active
+Max=5
+Info=This skill enhances your next attack done with a weapon. Increased levels decreases the amount of time between uses.
+Cooldown=11
+ActionPoints=3
+NeedToEquip=true
+Style=WeaponMaster
+Instant=false
+
+[TrueStrike]
+Cost=500
+CoinCost=50
+Type=Active
+Max=5
+Info=This skill makes it so your next attack cannot be countered, dodged or parried. This skill will not allow your attacks to hit through shadows, royal guard or mana wall. Increased levels decreases the amount of time between uses.
+Cooldown=11
+ActionPoints=2
+NeedToEquip=true
+Style=WeaponMaster
+Instant=false
+
+[ManaWall]
+Cost=450
+CoinCost=25
+Type=Active
+Max=6
+Info=This skill reduces the next magic attack used against you to 0.  Increased levels decreases the amount of time between uses.
+Cooldown=11
+ActionPoints=2
+NeedToEquip=true
+Style=Spellmaster
+Instant=false
+
+[RoyalGuard]
+Cost=450
+CoinCost=25
+Type=Active
+Max=6
+Info=This skill reduces the next physical attack used against you to 0.  Increased levels decreases the amount of time between uses. The damage blocked with this skill on will be added to your royal guard meter.
+Cooldown=11
+ActionPoints=2
+NeedToEquip=true
+Style=Guardian
+Instant=false
+
+[PerfectDefense]
+Cost=1000
+CoinCost=50
+Type=Active
+Max=1
+Info=This skill reduces the next attack used against you to 0.
+Cooldown=20
+ActionPoints=2
+NeedToEquip=true
+Style=Guardian
+Instant=false
+
+[Meditate]
+Cost=400
+CoinCost=15
+Type=Active
+Max=10
+Info=This skill will give you (level * 5) TP back to you instantly.
+Cooldown=5
+ActionPoints=2
+NeedToEquip=true
+Instant=false
+
+[ConserveTP]
+Cost=500
+CoinCost=10
+Type=Active
+Max=5
+Info=This skill will reduce the cost of your next technique to 0 TP. Increased levels decreases the amount of time between uses.
+Cooldown=16
+ActionPoints=2
+NeedToEquip=true
+Style=WeaponMaster
+Instant=true
+
+[BloodBoost]
+Cost=1000
+CoinCost=50
+Type=Active
+Max=10
+Info=This skill will consume (3 * skill level)% hp to give you a (skill level * 2)% boost to your STR.
+ActionPoints=5
+NeedToEquip=true
+Style=WeaponMaster
+Instant=false
+
+[BloodSpirit]
+Cost=1000
+CoinCost=50
+Type=Active
+Max=10
+Info=This skill will consume (3 * skill level)% hp to give you a (skill level * 2)% boost to your INT.
+ActionPoints=5
+NeedToEquip=true
+Style=Spellmaster
+Instant=false
+
+[DrainSamba]
+Cost=750
+CoinCost=25
+Type=Active
+Max=10
+Info=This skill will consume 10 TP to activate the "drain" status on the user, allowing him/her to gain HP back with every melee attack.  The amount of turns it will last is the level of your skill.  Note that the drain effect will not work on the undead (vampires, skeletons, zombies).
+Cooldown=16
+ActionPoints=2
+NeedToEquip=true
+Instant=false
+
+[Regen]
+Cost=1000
+CoinCost=50
+Type=Active
+Max=20
+Info=This skill will give you the HP regeneration effect.  Every turn you will regenerate ((max hp * skill level %) / 2)) HP back.  The effect will wear off when you reach your maximum HP or if you die.
+Cooldown=16
+ActionPoints=2
+NeedToEquip=true
+Instant=false
+
+[Utsusemi]
+Cost=500
+CoinCost=50
+Type=Active
+Info=This skill will create 2 shadows that will absorb all types of attacks.  Increased levels decreases the amount of time between uses.
+Max=10
+Cooldown=20
+ActionPoints=3
+NeedToEquip=true
+Instant=false
+
+[Steal]
+Cost=250
+CoinCost=25
+Type=Active
+Info=This skill attempts to steal an item from the target using the steal.db pool. The existing core steal-chance formula remains authoritative.
+Max=40
+Cooldown=6
+ActionPoints=2
+Instant=false
+NeedToEquip=false
+
+[Analysis]
+Cost=$iif($readini($char($1), skills, Analysis) < 6, 550, 2500)
+CoinCost=$iif($readini($char($1), skills, Analysis) < 6, 30, 60)
+Type=Active
+Info=This skill will allow you to analyze a target. Each level of the skill gives you more detail about the target. Note that the base cost of this skill increases in price after level 6.
+Max=7
+ActionPoints=1
+Cooldown=1
+Instant=false
+
+[Cover]
+Cost=600
+CoinCost=50
+Type=Active
+Info=This skill allows you to jump in front of an attack and cover an ally of your choosing.
+Max=1
+Cooldown=3
+ActionPoints=1
+NeedToEquip=true
+Style=Guardian
+Instant=false
+
+[Aggressor]
+Cost=500
+CoinCost=30
+Type=Active
+Info=When used, this skill will take (skill level * 10%) of your defense and add it to your strength but will leave your defense at 5.
+Max=10
+ActionPoints=3
+NeedToEquip=true
+Style=WeaponMaster
+Instant=false
+
+[Defender]
+Cost=500
+CoinCost=30
+Type=Active
+Info=When used, this skill will take (skill level * 10%) of your strength and add it to your defense but will leave your strength at 5.
+Max=10
+ActionPoints=3
+NeedToEquip=true
+Style=Guardian
+Instant=false
+
+[Provoke]
+Cost=600
+CoinCost=25
+Type=Active
+Info=This skill allows you to provoke an enemy into attacking you instead of another target.
+Max=1
+Cooldown=3
+ActionPoints=1
+NeedToEquip=true
+Style=Trickster
+Instant=false
+
+[ShieldFocus]
+Type=active
+Cost=1000
+CoinCost=100
+Info=When you activate this skill your shield is guaranteed to block 100% of a single attack if the attack can be blocked.
+Max=1
+Cooldown=30
+ActionPoints=2
+NeedToEquip=true
+Style=Guardian
+Instant=false
+
+[Barrage]
+Cost=5000
+CoinCost=500
+Type=active
+Info=This skill performs a rapid ranged attack and adds +3 hits to a normal ranged attack. Intended for bows/crossbows; exact weapon-family checks will be adapted in the combat code.
+Max=1
+Cooldown=30
+ActionPoints=2
+NeedToEquip=true
+Instant=false
+Style=SharpShooter
+
+[Duality]
+Type=active
+Cost=0
+CoinCost=0
+Info=You have learned how to be more lethal with your single-target non-magic techniques. Your next technique will deal +1 more hit than normal.
+Max=1
+Cooldown=20
+ActionPoints=2
+NeedToEquip=true
+Instant=false
+
+[DoubleCast]
+Cost=0
+CoinCost=0
+Type=active
+Info=You have learned how to cast two of the same spell at once. Your magic techniques will deal +1 more hit than normal.
+Max=1
+Cooldown=20
+ActionPoints=2
+NeedToEquip=true
+Instant=false
+
+[ThinAir]
+Cost=0
+CoinCost=0
+Type=active
+Info=With this ancient practice you will be able to cast the next spell using no tp.  You will not consume a turn when using this skill.
+Max=1
+Cooldown=15
+ActionPoints=2
+NeedToEquip=true
+Style=Spellmaster
+Instant=true
+
+[Invigorate]
+Cost=0
+CoinCost=0
+Type=active
+Info=With this ancient practice you will be able to instantly restore 200 missing TP to keep yourself in the flow of battle.  You will not consume a turn when using this skill.
+Max=1
+Cooldown=10
+ActionPoints=2
+NeedToEquip=true
+Instant=true
+
+[ThrillOfBattle]
+Cost=0
+CoinCost=0
+Type=active
+Info=You absolutely love the thrill of battle and with this ancient skill you will be able to restore 600 missing HP.  As a bonus 100 HP can go over your maximum HP limit. You will not consume a turn when using this skill.
+Max=1
+Cooldown=50
+ActionPoints=3
+NeedToEquip=true
+Instant=true
+
+[Disarm]
+Cost=500
+CoinCost=50
+Type=Active
+Info=This skill will let you try to disarm a target.  Each level increases the percentage of success by 1%.
+Max=30
+Cooldown=11
+ActionPoints=2
+NeedToEquip=true
+Style=Trickster
+Instant=false
+
+[MagicMirror]
+Cost=15000
+CoinCost=150
+Type=Active
+Info=This skill will consume a MirrorShard to create a magical reflective barrier around you. The barrier will bounce a magic spell back to its caster.  Increased levels decreases the amount of time between uses.
+Max=5
+Cooldown=16
+ActionPoints=2
+NeedToEquip=true
+Style=Spellmaster
+Instant=false
+
+[Thirdeye]
+Cost=500
+CoinCost=25
+Type=Active
+Info=This skill will increase the odds of dodging physical attacks for 1-2 attacks to 100%.  Increased levels decreases the amount of time between uses.  ** This skill will not increase the odds of dodging magical, item, or tech attacks.
+Max=10
+Cooldown=21
+ActionPoints=2
+NeedToEquip=true
+Style=HitenMitsurugi-ryu
+Instant=false
+
+[Scavenge]
+Cost=5000
+CoinCost=20
+Type=Active
+Info=This skill searches the current battlefield/biome for a buried or hidden item. The available items depend on the current location.
+Max=20
+ActionPoints=1
+Instant=false
+
+[FormlessStrike]
+Cost=750
+CoinCost=15
+Type=Active
+Max=10
+Info=This skill will consume 50% of your TP to activate the ability to hurt ethereal monsters with every melee attack.  The amount of turns it will last is the level of your skill.
+Cooldown=15
+ActionPoints=2
+NeedToEquip=true
+Style=Wrestlemania
+Instant=false
+
+[Retaliation]
+Cost=2000
+CoinCost=50
+Type=Active
+Info=This skill will guarantee the next melee attack towards you will be countered. While this skill is active you will go last in battle.  Increased levels of this skill will decrease the time between uses.
+Max=5
+Cooldown=21
+ActionPoints=2
+NeedToEquip=true
+Style=Guardian
+Instant=false
+
+[Lockpicking]
+Cost=500
+Cost=20
+Type=Active
+Max=15
+Info=This skill consumes a lockpick and attempts to open a locked chest without its normal key. Success chance is (skill level * 3)%.
+ActionPoints=0
+
+[CriticalFocus]
+Cost=5000
+CoinCost=150
+Type=Active
+Max=1
+Info=This skill will cause your next attack to be a critical hit.
+ActionPoints=1
+Cooldown=15
+NeedToEquip=true
+Instant=false
+
+[QuickPockets]
+Cost=0
+CoinCost=0
+Type=Active
+Max=1
+Info=Your speed allows you to quickly use an item without consuming your turn in battle.
+ActionPoints=1
+Cooldown=15
+NeedToEquip=true
+Instant=false
+
+[LucidDreaming]
+Cost=0
+CoinCost=0
+Type=Active
+Max=1
+Info=This skill allows you to cut your current enmity in half.
+ActionPoints=1
+Cooldown=15
+NeedToEquip=false
+Instant=false
+
+[SoftBlows]
+Cost=0
+CoinCost=0
+Type=Active
+Max=1
+Info=This skill allows your next attack to generate no enmity.  This skill does not consume a turn.
+ActionPoints=1
+Cooldown=15
+NeedToEquip=false
+Instant=true
+
+
+; =============================================================
+; RESISTANCE SKILLS - ORIGINAL CORE SET
+; =============================================================
+
+[Resist-Paralysis]
+Cost=150
+CoinCost=10
+Max=100
+Type=Resistance
+Info=This skill lowers the chance that you will become paralyzed in battle by 1% each level.
+
+[Resist-Bleed]
+Cost=150
+CoinCost=10
+Max=100
+Type=Resistance
+Info=This skill lowers the chance that you will become bleeding in battle by 1% each level.
+
+[Resist-Charm]
+Cost=150
+CoinCost=10
+Max=100
+Type=Resistance
+Info=This skill lowers the chance that you will become charmed in battle by 1% each level.
+
+[Resist-Blind]
+Cost=150
+CoinCost=10
+Max=100
+Type=Resistance
+Info=This skill lowers the chance that you will become blind in battle by 1% each level.
+
+[Resist-Poison]
+Cost=150
+CoinCost=10
+Max=100
+Type=Resistance
+Info=This skill lowers the chance that you will become poisoned in battle by 1% each level.
+
+[Resist-Amnesia]
+Cost=150
+CoinCost=10
+Max=100
+Type=Resistance
+Info=This skill lowers the chance that you will suffer amnesia in battle by 1% each level.
+
+[Resist-Curse]
+Cost=150
+CoinCost=10
+Max=100
+Type=Resistance
+Info=This skill lowers the chance that you will become cursed in battle by 1% each level.
+
+[Resist-Zombie]
+Cost=150
+CoinCost=10
+Max=100
+Type=Resistance
+Info=This skill lowers the chance that you will become a zombie in battle by 1% each level.
+
+[Resist-Slow]
+Cost=150
+CoinCost=10
+Max=100
+Type=Resistance
+Info=This skill lowers the chance that you will become slowed in battle by 1% each level.
+
+[Resist-Stun]
+Cost=150
+CoinCost=10
+Max=100
+Type=Resistance
+Info=This skill lowers the chance that you will become stunned in battle by 1% each level.
+
+[Resist-Stop]
+Cost=150
+CoinCost=10
+Max=100
+Type=Resistance
+Info=This skill lowers the chance that you will become frozen in time in battle by 1% each level.
+
+[Resist-Petrify]
+Cost=200
+CoinCost=20
+Max=50
+Type=Resistance
+Info=This skill lowers the chance that you will be come petrified in battle by 1% each level
+
+[Resist-Sleep]
+Cost=0
+CoinCost=0
+Max=0
+Type=Resistance
+Info=This skill lowers the chance that you will be put to sleep. Players cannot buy this.
+
+[Resist-Confuse]
+Cost=0
+CoinCost=0
+Max=0
+Type=Resistance
+Info=This skill lowers the chance that you will be put to sleep. Players cannot buy this.
+
+=============================================
+KILLER TRAIT SKILLS
+=============================================
+
+
+; =============================================================
+; KILLER TRAITS - CURRENTLY MINECRAFT-COMPATIBLE OLD KEYS
+; =============================================================
+
+[Undead-Killer]
+Cost=5000
+CoinCost=100
+Max=10
+Type=KillerTrait
+Info=This skill increases damage done against undead monsters by 1% a level.
+
+[Dragon-Killer]
+Cost=5000
+CoinCost=100
+Max=10
+Type=KillerTrait
+Info=This skill increases damage done against dragon monsters by 1% a level.
+
+[Zombie-Killer]
+Cost=5000
+CoinCost=100
+Max=10
+Type=KillerTrait
+Info=This skill increases damage done against zombie monsters by 1% a level.
+
+[Treant-Killer]
+Cost=5000
+CoinCost=100
+Max=10
+Type=KillerTrait
+Info=This skill increases damage done against treant monsters by 1% a level.
+
+[Plant-Killer]
+Cost=5000
+CoinCost=100
+Max=10
+Type=KillerTrait
+Info=This skill increases damage done against plant monsters by 1% a level.
+
+[Bat-Killer]
+Cost=5000
+CoinCost=100
+Max=10
+Type=KillerTrait
+Info=This skill increases damage done against bat monsters by 1% a level.
+
+[Lizard-Killer]
+Cost=5000
+CoinCost=100
+Max=10
+Type=KillerTrait
+Info=This skill increases damage done against lizard monsters by 1% a level.
+
+[Elemental-Killer]
+Cost=5000
+CoinCost=100
+Max=10
+Type=KillerTrait
+Info=This skill increases damage done against elemental monsters by 1% a level.
+
+[Slime-Killer]
+Cost=5000
+CoinCost=100
+Max=10
+Type=KillerTrait
+Info=This skill increases damage done against slime monsters by 1% a level.  Note that it won't increase damage done to metal slimes unless the IgnoreMetalDefense augment is active.
+
+
+=============================================
+ENHANCING POINT SKILLS
+=============================================
+
+
+; =============================================================
+; ENHANCING POINT SKILLS - KEPT
+; =============================================================
+
+[Stoneskin]
+Cost=0
+CoinCost=0
+Type=Active
+Max=10
+Info=This skill adds a stoneskin natural armor to the player upon its use. The amount of damage it can absorb is (level + 10)% * int, with the max amount per point being 300*point level (3000 cap at level 10).  Stoneskin will wear off at the end of each battle if it is not broken by the enemy. Note that using stoneskin and then being synced via portal will recalculate the amount that can be absorbed.
+
+[TabulaRasa]
+Cost=0
+CoinCost=0
+Type=Active
+Max=10
+Info=This skill attempts to inflict a target with the amnesia status effect. Chance of success is 40+(level)% on targets that are not immune to the status effect.
+Cooldown=5
+
+[SpoilSeeker]
+Cost=0
+CoinCost=0
+Type=Passive
+Max=10
+Info=This skill increases the odds of receiving a drop from defeating a monster who has a spoil. Each level increases the odds by 2%, up to 20% max.
+
+[Demolitions]
+Cost=0
+CoinCost=0
+Type=Passive
+Max=10
+Info=This skill enhances supported explosive attack items such as TNT-based RPG items. Extra damage is 4% * skill level, up to 40%.
+
+[Overwhelm]
+Cost=0
+CoinCost=0
+type=passive
+Info=This skill will increase overall damage against monsters by 2% per skill level
+Max=5
+
+[DieHard]
+Cost=0
+CoinCost=0
+type=passive
+Info=You are a little harder to kill. With this skill there is a 1% chance per skill level of surviving a blow that would normally kill you.
+Max=10

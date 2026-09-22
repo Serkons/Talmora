@@ -1,0 +1,6 @@
+[Plains]
+NumberOfEvents=1
+Event1type=heal
+Event1Chance=100
+Event1Amount=$rand(1,10)
+Event1Desc=Du entdeckst einige heilende Kräuter am Wegesrand und nutzt sie, um deine Wunden zu versorgen.

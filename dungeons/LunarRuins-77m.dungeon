@@ -1,0 +1,74 @@
+[Info]
+Name=Lunar Ruins 77m
+Open=true
+Rooms=10
+PlayersNeeded=1
+PlayersRecommended=3
+Level=1000
+Echo=true
+MonsterLevel=1000
+BossLevel=1010
+FinalRoom=9
+StartBattleDesc=gives the charter to $readini(shopnpcs.dat, NPCNames, Engineer) who takes it and programs the Lunar Whale's destination to the moon! Everyone aboard! This is going to be a wild ride! $decrease_item($1, MoonCharter)
+
+ClearDungeonDesc=* The party returns to the Lunar Whale and returns back home in one piece! [Clear time: %total.battle.duration $+ ]
+
+DungeonFail=* The party has failed in exploring this section of the moon and is forced back home in defeat.
+
+; Starting room is always 0, after successfully clearing a room it will be  room#+1 automatically
+[0]
+Desc=The Lunar Whale comes to a hard stop.  Everyone straps on the oxygen tank and prepares to leave the safety of the Lunar Whale to explore part of the moon.  Take a moment to prepare...
+Battlefield=Lunar Whale - Dock
+
+[1]
+Desc=The party leaves the ship and is standing on the surface of the moon. It's grey and lifeless.. after a moment $readini(shopnpcs.dat, NPCNames, Engineer) comes across via radio and informs the party that radar detects something of interest to the east and directs everyone to what appears to be the ruins of an old lunar fort.
+Battlefield=Moon Surface
+StoryRoom=true
+
+[2]
+Desc=The party enters the ruins.. $readini(shopnpcs.dat, NPCNames, Engineer) comes across via radio and informs the party that radar detects something moving towards them!  After a moment the party is attacked by soldier-looking creatures!
+Monsters=$readini($dungeonfile($dungeon.dungeonfile), MonsterList, $rand(1,1))
+Battlefield=Lunar Ruins - 77m
+
+[3]
+Desc=The party begins to hear a loud cackling as they pass what appears to be a ruined guard post and see creatures crawling out of the ruins towards them..
+Monsters=$readini($dungeonfile($dungeon.dungeonfile), MonsterList, $rand(2,3))
+Battlefield=Lunar Ruins - 77m
+
+[4]
+Desc=As the party moves into what used to be an old dining hall they hear a loud voice yell "YOU'LL NOT BE TAKING THE ORE AWAY FROM ME!" followed by more monsters pouring into the ruins!
+Monsters=$readini($dungeonfile($dungeon.dungeonfile), MonsterList, $rand(3,7))
+Battlefield=Lunar Ruins - 77m
+
+[5]
+Desc=The oxygen tanks beep revealing that the party has 50% oxygen left.  
+StoryRoom=true
+
+[6]
+Desc=The party sees what seems to be a ruined throne room a ways ahead.. A dark aura seems to be coming from that direction but as they make their way towards it more monsters attack.
+Monsters=$readini($dungeonfile($dungeon.dungeonfile), MonsterList, $rand(3,7))
+Battlefield=Lunar Ruins - 77m
+
+[7]
+Desc=The aura around the ruined throne room grows thicker as they go closer it. "STAY BACK YOU THIEVES!" yells .. something .. from within the ruined throne room.
+StoryRoom=true
+
+[8]
+Desc=The party has fully entered the ruined throne room and see a glowing chunk of lunar ore.  They also notice a large grey-skinned grotesque goblin-elf looking creature who sees the party and gives a loud battle cry.
+Battlefield=Lunar Ruins - 77m
+bossroom=true
+Monsters=Bekrokh
+
+[9]
+Desc=With the dark elf's defeat the heroes are free to claim the chunk of lunar ore and flee back to the Lunar Whale before they run out of oxygen.
+StoryRoom=true
+
+[MonsterList]
+1=LunarSoldier.LunarSoldier
+2=AbyssWorm.PurpleBavarios
+3=LunarCorpse.LunarCorpse
+4=LunarSoldier.LunarWorm
+5=LunarCorpse.LunarWorm
+6=LunarVirus.LunarCorpse.LunarSoldier
+7=LunarSoldier.BlackFlan.LunarBomb
+

@@ -1,0 +1,11 @@
+[BattleInfo]
+FlawlessVictory=false
+
+[style]
+poison.lastaction=poison
+poison=0
+battlefield.lastaction=battlefield
+battlefield=0
+
+[Enmity]
+poison=312

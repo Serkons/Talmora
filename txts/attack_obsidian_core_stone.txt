@@ -1,0 +1,1 @@
+shoots a small purple light beam toward %enemy

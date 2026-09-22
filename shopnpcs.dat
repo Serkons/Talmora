@@ -1,0 +1,48 @@
+[NPCStatus]
+Santa=false
+EasterBunny=false
+HealingMerchant=kidnapped
+BattleMerchant=kidnapped
+DiscountCardMerchant=kidnapped
+AlliedForcesPresident=kidnapped
+SongMerchant=kidnapped
+ShieldMerchant=kidnapped
+WheelMaster=true
+TravelMerchant=false
+Gardener=true
+PotionWitch=false
+Gambler=kidnapped
+DungeonKeyMerchant=true
+GobbieBoxGoblin=false
+Jeweler=false
+Cardian=kidnapped
+Engineer=false
+alliedforcepresident=true
+
+[Events]
+FrostLegionDefeated=false
+SavedElves=0
+
+[NPCNames]
+Santa=Santa
+EasterBunny=Easter Bunny
+DiscountCardMerchant=Myles the Discount Merchant
+HealingMerchant=Katelyn the Healing Merchant
+BattleMerchant=Gerhardt the Battle Merchant
+AlliedForcesPresident=Aevar Strongharm the Allied Forces President
+SongMerchant=Spoony the Bard
+ShieldMerchant=Gondo the Shield Merchant
+WheelMaster=Dodoh the Wheel Master
+TravelMerchant=Beedle the Traveling Merchant
+Gardener=Green Thumb the Garden Moogle
+PotionWitch=Syrup the Potion Witch
+Gambler=Setzer the Gambler
+DungeonKeyMerchant=Vinz Clortho the Keymaster
+GobbieBoxGoblin=Bountibox the Goblin
+Jeweler=Vasu the Jeweler
+Cardian=King of Cups
+Engineer=Shido Pollendina
+
+[NPCNews]
+Arrived=[Aug 15 2026 - 03:47 am] 7* Beedle the Traveling Merchant has arrived to the Allied Forces HQ ready to do business.
+Kidnapped=[Aug 13 2025 - 06:06 am] 7* The terrible dragon Zedrith Riptide leaves its lair to attack the Allied Forces HQ! During the attack Gondo the Shield Merchant was picked up and carried away to be delivered to the forces of evil!

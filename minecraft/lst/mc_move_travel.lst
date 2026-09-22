@@ -1,0 +1,5 @@
+Du wanderst %distance Blöcke nach %direction.name und setzt deine Erkundung fort.
+Dein Weg führt dich %distance Blöcke weiter nach %direction.name .
+Du schlägst den Weg nach %direction.name ein und legst %distance Blöcke zurück.
+Du setzt deine Reise nach %direction.name fort und legst dabei %distance Blöcke zurück.
+Du ziehst %distance Blöcke weiter nach %direction.name .
