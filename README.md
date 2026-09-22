@@ -524,6 +524,45 @@ werden deshalb nur nach entsprechender Prüfung verändert.
 
 ------------------------------------------------------------------------
 
+## 🎮 Talmora selbst ausprobieren
+
+Du möchtest Talmora ausprobieren, ohne das komplette Projekt selbst installieren und betreiben zu müssen?
+
+Die aktuelle Entwicklungsversion läuft auf dem offiziellen **iGameRPG-IRC-Server** und kann dort direkt getestet werden.
+
+### Über IRC
+
+Verbinde dich mit folgenden Daten:
+
+- **Server:** `igamerpg.de`
+- **Port:** `6697` (SSL/TLS)
+- **Spielkanal:** `#RPG-MC`
+
+Zum Verbinden kannst du beispielsweise einen IRC-Client wie **mIRC** verwenden.
+
+Nach der Verbindung mit dem Server kannst du den Spielkanal betreten:
+
+```text
+/join #RPG-MC
+
+> Dort läuft die aktuelle Entwicklungsversion von Talmora zusammen mit der zugrunde liegenden RPG-Core-Engine.
+
+> Hinweis: Talmora befindet sich in aktiver Entwicklung.
+
+> Funktionen können noch unvollständig sein, sich während der Entwicklung verändern oder gelegentlich Fehler verursachen. Genau deshalb sind Tester willkommen.
+
+> Wenn dir beim Spielen ein Fehler auffällt, kannst du anschließend ein GitHub Issue erstellen. Hilfreich sind dabei eine möglichst genaue Beschreibung, der verwendete Befehl und – falls vorhanden – die angezeigte Fehlermeldung.
+
+# Über Discord
+
+Eine direkte Spielanbindung über Discord befindet sich derzeit noch in Entwicklung.
+
+Redstone Relay verbindet Discord bereits mit der Entwicklung rund um Talmora. Langfristig soll darüber auch das eigentliche Spiel erreichbar werden.
+
+IRC und Discord sollen dabei keine getrennten Spielwelten erhalten: Beide Plattformen sollen auf dieselben Charaktere, dieselbe Welt und dieselben zentralen RPG-Systeme zugreifen.
+
+------------------------------------------------------------------------
+
 ## 🤝 Mitmachen und testen
 
 Talmora befindet sich noch mitten in der Entwicklung.
