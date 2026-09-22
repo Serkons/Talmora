@@ -544,6 +544,7 @@ Nach der Verbindung mit dem Server kannst du den Spielkanal betreten:
 
 ```text
 /join #RPG-MC
+```
 
 Dort läuft die aktuelle Entwicklungsversion von Talmora zusammen mit der zugrunde liegenden RPG-Core-Engine.
 
