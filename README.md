@@ -545,13 +545,13 @@ Nach der Verbindung mit dem Server kannst du den Spielkanal betreten:
 ```text
 /join #RPG-MC
 
-> Dort läuft die aktuelle Entwicklungsversion von Talmora zusammen mit der zugrunde liegenden RPG-Core-Engine.
+Dort läuft die aktuelle Entwicklungsversion von Talmora zusammen mit der zugrunde liegenden RPG-Core-Engine.
 
-> Hinweis: Talmora befindet sich in aktiver Entwicklung.
+# Hinweis: Talmora befindet sich in aktiver Entwicklung.
 
-> Funktionen können noch unvollständig sein, sich während der Entwicklung verändern oder gelegentlich Fehler verursachen. Genau deshalb sind Tester willkommen.
+Funktionen können noch unvollständig sein, sich während der Entwicklung verändern oder gelegentlich Fehler verursachen. Genau deshalb sind Tester willkommen.
 
-> Wenn dir beim Spielen ein Fehler auffällt, kannst du anschließend ein GitHub Issue erstellen. Hilfreich sind dabei eine möglichst genaue Beschreibung, der verwendete Befehl und – falls vorhanden – die angezeigte Fehlermeldung.
+Wenn dir beim Spielen ein Fehler auffällt, kannst du anschließend ein GitHub Issue erstellen. Hilfreich sind dabei eine möglichst genaue Beschreibung, der verwendete Befehl und – falls vorhanden – die angezeigte Fehlermeldung.
 
 # Über Discord
 
